@@ -12,7 +12,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
 from .button import fsub_button, start_button
-from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
+from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG, OTHER_BOT_NAME_1
 from database.sql import add_user, full_userbase, query_msg
 from helper_func import decode, get_messages, subsall, subsch, subsgc
 
@@ -95,7 +95,7 @@ async def start_command(client: Bot, message: Message):
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             txt = urllib.parse.quote(text.replace('--', ''))
-            buttons = [[ InlineKeyboardButton(text="Chat me 📮", url=f"https://t.me/{client.username}?"), InlineKeyboardButton(text="Share Post 👤", url=f"tg://share?url={txt}") ],[ InlineKeyboardButton(text="➕ Add Me To Your Groups ➕", url=f"https://t.me/{client.username}?startgroup=true") ]]
+            buttons = [[ InlineKeyboardButton(text="Chat me 📮", url=f"https://t.me/{client.username}?"), InlineKeyboardButton(text="Share Post 👤", url=f"tg://share?url={txt}") ],[ InlineKeyboardButton(text="➕ Add Me To Your Groups ➕", url=f"https://t.me/{OTHER_BOT_NAME_1}?startgroup=true") ]]
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
