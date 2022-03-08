@@ -85,13 +85,9 @@ async def start_command(client: Bot, message: Message):
 
         for msg in messages:
 
-            if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(
-                    previouscaption="" if not msg.caption else msg.caption.html,
-                    filename=msg.document.file_name,
-                )
-            else:
-                caption = "" if not msg.caption else msg.caption.html
+            
+                caption = "-📌 Terus dukung channel ini agar mimin semangat update 👌\n\n@viralmerahmuda \n@viralmerahmuda\n#viral\n#merah\n#muda\n**\n\n" 
+                
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
