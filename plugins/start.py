@@ -96,11 +96,11 @@ async def start_command(client: Bot, message: Message):
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             txt = urllib.parse.quote(text.replace('--', '')) 
         buttons = [[
-        InlineKeyboardButton(text="Chat my Owner 🖋️", url="https://t.me/video_tante_indonesia/67"),
-        InlineKeyboardButton(text="Share Post 👤", url="https://t.me/video_tante_indonesia/67")
+        InlineKeyboardButton(text="Open Url 🔗", url="https://t.me/Naruto_Anime_Death_Note_HD/1098"),
+        InlineKeyboardButton(text="Share Link 👤", url="https://t.me/Naruto_Anime_Death_Note_HD/1098")
         ],[
-        InlineKeyboardButton(text="➕ Add Me To Your Groups ➕", url="https://t.me/tettfileeeshare_bot?startgroup=true")
-        ]]
+        InlineKeyboardButton(text="Delete 🗑", url="https://t.me/Naruto_Anime_Death_Note_HD/1098")
+    ]]
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
