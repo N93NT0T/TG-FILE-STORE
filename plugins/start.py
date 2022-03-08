@@ -94,13 +94,18 @@ async def start_command(client: Bot, message: Message):
                 caption = "" if not msg.caption else msg.caption.html
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-            
+            buttons = [[
+        InlineKeyboardButton(text="Open Url 🔗", url="https://t.me/c/1567372048/1509"),
+        InlineKeyboardButton(text="Share Link 👤", url="https://t.me/caripacarvirtuallll/3291259")
+        ],[
+        InlineKeyboardButton(text="Delete 🗑", url="https://t.me/caripacarvirtuallll/3291259")
+    ]]
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
                     caption=CUSTOM_CAPTION,
                     parse_mode="html",
-                    reply_markup=reply_markup,
+                    reply_markup=InlineKeyboardMarkup(buttons),
                     disable_notification=True,
                     protect_content=True
                 )
