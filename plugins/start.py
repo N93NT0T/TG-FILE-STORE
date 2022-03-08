@@ -97,7 +97,7 @@ async def start_command(client: Bot, message: Message):
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
-                    caption=caption,
+                    caption=CUSTOM_CAPTION,
                     parse_mode="html",
                     reply_markup=reply_markup,
                 )
