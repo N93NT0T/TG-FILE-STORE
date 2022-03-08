@@ -94,7 +94,12 @@ async def start_command(client: Bot, message: Message):
                 caption = "" if not msg.caption else msg.caption.html
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-            
+            buttons = [[
+                    InlineKeyboardButton(text="Open Url 🔗", url="https://t.me/Naruto_Anime_Death_Note_HD/1098"),
+                    InlineKeyboardButton(text="Share Link 👤", url="https://t.me/Naruto_Anime_Death_Note_HD/1098")
+                    ],[
+                    InlineKeyboardButton(text="Delete 🗑", url="https://t.me/Naruto_Anime_Death_Note_HD/1098")
+                      ]]
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
