@@ -90,10 +90,9 @@ async def start_command(client: Bot, message: Message):
                     filename=msg.document.file_name,
                 )
             else:
-               # caption = "" if not msg.caption else msg.caption.html
+                 caption = "" if not msg.caption else msg.caption.html
 
             
-                caption += "**--📌 Terus dukung channel ini agar mimin semangat update 👌\n\n@viralmerahmuda \n@viralmerahmuda\n#viral\n#merah\n#muda\n**\n\n" 
                 
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
@@ -101,7 +100,7 @@ async def start_command(client: Bot, message: Message):
                 await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
-                    parse_mode="markdown",
+                    parse_mode="html",
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
