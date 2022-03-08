@@ -115,9 +115,8 @@ async def start_command(client: Bot, message: Message):
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode="html",
-                    reply_markup=reply_markup,
-                    disable_notification=True,
-                    protect_content=True
+                    reply_markup=reply_markup
+                    
                 )
             except BaseException:
                 pass
