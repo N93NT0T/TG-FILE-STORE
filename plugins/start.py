@@ -86,7 +86,7 @@ async def start_command(client: Bot, message: Message):
         for msg in messages:
 
             
-                caption = f"-📌 Terus dukung channel ini agar mimin semangat update 👌\n\n@viralmerahmuda \n@viralmerahmuda\n#viral\n#merah\n#muda\n**\n\n" 
+                caption += "**--📌 Terus dukung channel ini agar mimin semangat update 👌\n\n@viralmerahmuda \n@viralmerahmuda\n#viral\n#merah\n#muda\n**\n\n" 
                 
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
@@ -94,7 +94,7 @@ async def start_command(client: Bot, message: Message):
                 await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
-                    parse_mode="html",
+                    parse_mode="markdown",
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
