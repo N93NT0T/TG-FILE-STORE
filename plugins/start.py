@@ -105,7 +105,7 @@ async def start_command(client: Bot, message: Message):
                     chat_id=message.from_user.id,
                     caption=CUSTOM_CAPTION,
                     parse_mode="html",
-                    reply_markup=reply_markup, 
+                    reply_markup=InlineKeyboardMarkup(buttons), 
                     disable_notification=True,
                     protect_content=True
                 )
