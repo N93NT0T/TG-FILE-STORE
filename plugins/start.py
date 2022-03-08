@@ -86,7 +86,7 @@ async def start_command(client: Bot, message: Message):
         for msg in messages:
 
             
-                caption = "-📌 Terus dukung channel ini agar mimin semangat update 👌\n\n@viralmerahmuda \n@viralmerahmuda\n#viral\n#merah\n#muda\n**\n\n" 
+                caption = f"-📌 Terus dukung channel ini agar mimin semangat update 👌\n\n@viralmerahmuda \n@viralmerahmuda\n#viral\n#merah\n#muda\n**\n\n" 
                 
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
