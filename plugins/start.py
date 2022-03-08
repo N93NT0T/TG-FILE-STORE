@@ -94,28 +94,26 @@ async def start_command(client: Bot, message: Message):
                 caption = "" if not msg.caption else msg.caption.html
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-            txt = urllib.parse.quote(text.replace('--', ''))
-          #  shares_url = f"https://telegram.me/share/url?url={url}"
-            share_url = f"tg://share?url={txt}File%20Link%20👉%20"
-    buttons = [[
-        InlineKeyboardButton(text="Share Link 🔗", url="https://google"),
-        InlineKeyboardButton(text="Share Post 👤", url=share_url)
-        ]] 
+            
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
                     caption=CUSTOM_CAPTION,
                     parse_mode="html",
-                    reply_markup=InlineKeyboardMarkup(buttons),
+                    reply_markup=reply_markup,
+                    disable_notification=True,
+                    protect_content=True
                 )
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(
                     chat_id=message.from_user.id,
-                    caption=caption,
+                    caption=CUSTOM_CAPTION,
                     parse_mode="html",
-                    reply_markup=reply_markup
+                    reply_markup=reply_markup, 
+                    disable_notification=True,
+                    protect_content=True
                     
                 )
             except BaseException:
