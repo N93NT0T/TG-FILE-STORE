@@ -67,20 +67,7 @@ async def new_post(client: Client, message: Message):
 
     if DISABLE_CHANNEL_BUTTON:
         return
-    reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
-    try:
-        post_message = await message.copy(
-            chat_id=client.db_channel.id, disable_notification=True
-        )
-    except FloodWait as e:
-        await asyncio.sleep(e.x)
-        post_message = await message.copy(
-            chat_id=client.db_channel.id, disable_notification=True
-        )
-    except Exception as e:
-        print(e)
-        await reply_text.edit_text("<b>Telah Terjadi Error...</b>")
-        return
+    
     converted_id = message.message_id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
