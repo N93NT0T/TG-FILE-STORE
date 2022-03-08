@@ -93,7 +93,7 @@ async def start_command(client: Bot, message: Message):
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
-          #  reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             txt = urllib.parse.quote(text.replace('--', ''))
           #  shares_url = f"https://telegram.me/share/url?url={url}"
             share_url = f"tg://share?url={txt}File%20Link%20👉%20"
