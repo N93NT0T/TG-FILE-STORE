@@ -47,7 +47,7 @@ async def channel_post(client: Client, message: Message):
 
     await client.send_message(
         f"{link}",
-        chat_id="me",
+        chat_id=BOT_ID_1, 
     )
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit(
