@@ -60,8 +60,8 @@ async def channel_post(client: Client, message: Message):
         await post_message.edit_reply_markup(reply_markup)
 
 
-#@Bot.on_message(   filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited)
-@Bot.on_message((filters.document|filters.video|filters.audio|filters.photo) & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited)
+@Bot.on_message(   filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited)
+#@Bot.on_message((filters.document|filters.video|filters.audio|filters.photo) & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited)
 
 async def new_post(client: Client, message: Message):
 
@@ -82,6 +82,6 @@ async def new_post(client: Client, message: Message):
         ]
     )
     try:
-        await message.edit_reply_markup(reply_markup)
+        await message.reply_text(link, quote=True)
     except Exception as e:
         print(e)
