@@ -215,7 +215,8 @@ Akun Terhapus: <code>{deleted}</code></b>"""
         await msg.delete()
 
 @Bot.on_message(filters.command("cmd") & filters.user(ADMINS))
-    await m.reply_text(f"\n/start - mulai bot atau dapatkan postingan\n/batch - buat link untuk lebih dari satu posting\n/genlink - buat link untuk satu posting\n/users - lihat statistik pengguna bot\n/bc - menyiarkan/broadcast pesan apa pun ke pengguna bot\n/ping - untuk mengecek bot\n\n", quote=True)
+async def cmd(client, m: Message):
+    await m.reply_text(f"/start - mulai bot atau dapatkan postingan\n/batch - buat link untuk lebih dari satu posting\n/genlink - buat link untuk satu posting\n/users - lihat statistik pengguna bot\n/bc - menyiarkan/broadcast pesan apa pun ke pengguna bot\n/ping - untuk mengecek bot\n\n")
 
 @Bot.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
