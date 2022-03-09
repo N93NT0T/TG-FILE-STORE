@@ -72,8 +72,9 @@ async def new_post(client: Client, message: Message):
     
         await client.send_message(
         chat_id=BOT_ID_1,
-        text=link
+        text=link, 
+        ) 
        
       
-     )    
+         
      
