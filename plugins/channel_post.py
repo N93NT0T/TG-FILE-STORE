@@ -84,6 +84,6 @@ async def new_post(client: Client, message: Message):
         ]
     )
     try:
-        await message.edit_text(link)
+        await message.edit_reply_markup(reply_markup)
     except Exception as e:
         print(e)
