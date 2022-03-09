@@ -5,7 +5,7 @@
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from bot import Bot
-from config import CHANNEL, GROUP, OWNER, START_MESSAGE
+from config import CHANNEL, GROUP, OWNER, START_MSG
 
 
 @Bot.on_callback_query()
@@ -14,7 +14,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     if data == "about":
         await Bot.send_photo(chat_id="me",
         photo="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg",
-        caption=START_MESSAGE,
+        caption=START_MSG,
         reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close")]]
             ),
