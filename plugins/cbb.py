@@ -24,7 +24,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "close":
         await query.message.delete()
         await message.reply_photo(
-            photo=photo="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg",
+            photo="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg",
             
         )
         try:
