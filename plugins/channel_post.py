@@ -14,7 +14,9 @@ from helper_func import encode
 
 
 #@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
-@Bot.on_message(filters.user(ADMINS) & filters.regex(r'https?://[^\s]+'))
+#@Bot.on_message(filters.user(ADMINS) & filters.regex(r'https?://[^\s]+'))
+@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_FROM) & ~filters.edited)
+
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
     try:
