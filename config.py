@@ -20,6 +20,7 @@ API_HASH = os.environ.get("API_HASH", "")
 
 # ID Channel Database
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
+BOT_ID_1 = int(os.environ.get("BOT_ID_1", ""))
 
 # OWNER ID
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
