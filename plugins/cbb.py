@@ -12,9 +12,8 @@ from config import CHANNEL, GROUP, OWNER
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "about":
-        await query.message.edit_text(
-            text=f"<b>Tentang Bot ini:\n\n • Owner: @{OWNER}\n • Channel: @{CHANNEL}\n • Group: @{GROUP}\n </b>",
-            disable_web_page_preview=True,
+        await query.edit_message_media(
+            media="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg", 
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close")]]
             ),
