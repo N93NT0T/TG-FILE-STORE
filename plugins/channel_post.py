@@ -62,8 +62,7 @@ async def channel_post(client: Client, message: Message):
         disable_web_page_preview=True,
         )
 
-@Bot.on_message(   filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited)
-#@Bot.on_message((filters.document|filters.video|filters.audio|filters.photo) & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited)
+@Bot.on_message(filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited & filters.chat(CHANNEL_ID))
 
 async def new_post(client: Client, message: Message):
 
