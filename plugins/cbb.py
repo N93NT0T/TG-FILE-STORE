@@ -18,7 +18,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             disable_web_page_preview=True, 
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close")]]
-            ),protect_content=True, 
+            ),
             parse_mode='html'
         )
             
@@ -31,8 +31,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             photo=CAPTION_CLOSE_PHOTO,
             caption=CAPTION_CLOSE, 
             parse_mode='html', 
-            protect_content=True,
-            disable_web_page_preview=True, 
+            
+            disable_web_page_preview=True
         )
         try:
             await query.message.reply_to_message.delete()
