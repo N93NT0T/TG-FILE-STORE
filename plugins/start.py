@@ -251,8 +251,20 @@ async def get_uptime(client, m: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    await m.reply_text(
-        "🤖 <b>Bot Status:</b>\n"
-        f"• <b>Uptime:</b> <code>{uptime}</code>\n"
-        f"• <b>Start Time:</b> <code>{START_TIME_ISO}</code>"
-    )
+    await m.reply_text(f""" 
+/start - mulai bot atau dapatkan postingan
+
+/batch - buat link untuk lebih dari satu posting
+
+/genlink - buat link untuk satu posting
+
+/users - lihat statistik pengguna bot
+
+/broadcast - menyiarkan/broadcast pesan apa pun ke pengguna bot
+
+/ping - untuk mengecek bot
+
+• <b>Uptime:</b> <code>{uptime}</code>\n
+• <b>Start Time:</b> <code>{START_TIME_ISO}</code>
+"""
+  )
