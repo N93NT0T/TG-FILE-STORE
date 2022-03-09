@@ -158,7 +158,7 @@ async def not_joined(client: Bot, message: Message):
     )
 
 
-@Bot.on_message(filters.command(["users", "stats"]) & filters.user(ADMINS))
+@Bot.on_message(filters.command(["users"]) & filters.user(ADMINS))
 async def get_users(client: Bot, message: Message):
     msg = await client.send_message(
         chat_id=message.chat.id, text="<code>Processing ...</code>"
@@ -167,7 +167,7 @@ async def get_users(client: Bot, message: Message):
     await msg.edit(f"{len(users)} <b>Pengguna menggunakan bot ini</b>")
 
 
-@Bot.on_message(filters.command("broadcast") & filters.user(ADMINS))
+@Bot.on_message(filters.command("bc") & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
@@ -214,6 +214,8 @@ Akun Terhapus: <code>{deleted}</code></b>"""
         await asyncio.sleep(8)
         await msg.delete()
 
+@Bot.on_message(filters.command("cmd") & filters.user(ADMINS))
+    await m.reply_text(f"\n/start - mulai bot atau dapatkan postingan\n/batch - buat link untuk lebih dari satu posting\n/genlink - buat link untuk satu posting\n/users - lihat statistik pengguna bot\n/bc - menyiarkan/broadcast pesan apa pun ke pengguna bot\n/ping - untuk mengecek bot\n\n", quote=True)
 
 @Bot.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
