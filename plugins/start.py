@@ -167,7 +167,7 @@ async def get_users(client: Bot, message: Message):
     await msg.edit(f"{len(users)} <b>Pengguna menggunakan bot ini</b>")
 
 
-@Bot.on_message(filters.command("bc") & filters.user(ADMINS))
+@Bot.on_message(filters.command("broadcast") & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
@@ -216,8 +216,21 @@ Akun Terhapus: <code>{deleted}</code></b>"""
 
 @Bot.on_message(filters.command("cmd") & filters.user(ADMINS))
 async def cmd(client, m: Message):
-    await m.reply_text(f"/start - mulai bot atau dapatkan postingan\n/batch - buat link untuk lebih dari satu posting\n/genlink - buat link untuk satu posting\n/users - lihat statistik pengguna bot\n/bc - menyiarkan/broadcast pesan apa pun ke pengguna bot\n/ping - untuk mengecek bot\n\n")
+    m_reply = await m.reply_text("tel...")
+    await m_reply.edit_text(f""" 
+/start - mulai bot atau dapatkan postingan
 
+/batch - buat link untuk lebih dari satu posting
+
+/genlink - buat link untuk satu posting
+
+/users - lihat statistik pengguna bot
+
+/broadcast - menyiarkan/broadcast pesan apa pun ke pengguna bot
+
+/ping - untuk mengecek bot
+"""
+     )
 @Bot.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
