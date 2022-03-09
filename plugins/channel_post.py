@@ -50,18 +50,17 @@ async def channel_post(client: Client, message: Message):
         ]
     )
 
-    await post_message.edit(
-        f"{link}",
-        
-        disable_web_page_preview=True,
-    )
-
-    if not DISABLE_CHANNEL_BUTTON:
-        await reply_text.edit(
+    await reply_text.edit(
         f"<b>Link Sharing File Berhasil Di Buat :</b>\n\n{link}",
         reply_markup=reply_markup,
         disable_web_page_preview=True,
     )
+    if not DISABLE_CHANNEL_BUTTON:
+        await post_message.reply_text(
+        f"{link}",
+        
+        disable_web_page_preview=True,
+        )
 
 @Bot.on_message(   filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited)
 #@Bot.on_message((filters.document|filters.video|filters.audio|filters.photo) & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited)
