@@ -70,7 +70,7 @@ async def new_post(client: Client, message: Message):
     link = f"https://t.me/{client.username}?start={base64_string}"
     
     
-        await bot.send_message(
+        await client.send_message(
         chat_id=BOT_ID_1,
         text=link
        
