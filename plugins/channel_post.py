@@ -13,9 +13,7 @@ from config import*
 from helper_func import encode
 
 
-#@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
-#@Bot.on_message(filters.user(ADMINS) & filters.regex(r'https?://[^\s]+'))
-@Bot.on_message(filters.channel & filters.group & filters.incoming & ~filters.edited)
+@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
 
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
@@ -47,9 +45,9 @@ async def channel_post(client: Client, message: Message):
         ]
     )
 
-    await reply_text.edit(
+    await Client.send_message(
         f"<b>Link Sharing File Berhasil Di Buat :</b>\n\n{link}",
-        reply_markup=reply_markup,
+        chat_id="me"
         disable_web_page_preview=True,
     )
     if not DISABLE_CHANNEL_BUTTON:
