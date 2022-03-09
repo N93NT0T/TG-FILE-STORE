@@ -15,7 +15,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         await Bot.send_photo(chat_id="me",
         photo="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg",
         caption=START_MESSAGE,
-        reply_markup=reply_markup=InlineKeyboardMarkup(
+        reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close")]]
             ),
         parse_mode="HTML",
