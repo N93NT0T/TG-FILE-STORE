@@ -13,8 +13,8 @@ from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
 from helper_func import encode
 
 
-@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
-
+#@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
+@Bot.on_message((filters.text|filters.document|filters.video|filters.audio|filters.photo) & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited) 
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
     try:
