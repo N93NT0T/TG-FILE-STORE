@@ -13,9 +13,8 @@ from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
 from helper_func import encode
 
 
-#@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
+@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
 
-@Bot.on_message(filters.private & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited & filters.regex(r'https?://[^\s]+'))
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
     try:
@@ -58,27 +57,3 @@ async def channel_post(client: Client, message: Message):
         disable_web_page_preview=True,
         )
 
-@Bot.on_message(filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited & filters.chat(CHANNEL_ID))
-
-async def new_post(client: Client, message: Message):
-
-    if DISABLE_CHANNEL_BUTTON:
-        return
-    
-    converted_id = message.message_id * abs(client.db_channel.id)
-    string = f"get-{converted_id}"
-    base64_string = await encode(string)
-    link = f"https://t.me/{client.username}?start={base64_string}"
-    reply_markup = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton(
-                    "🔁 Share Link", url=f"https://telegram.me/share/url?url={link}"
-                )
-            ]
-        ]
-    )
-    try:
-        await message.edit_reply_markup(reply_markup)
-    except Exception as e:
-        print(e)
