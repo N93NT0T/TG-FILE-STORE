@@ -69,12 +69,11 @@ async def new_post(client: Client, message: Message):
     base64_string = await encode(string)
     link = f"https://t.me/{client.username}?start={base64_string}"
     
-    try:
+    
         await bot.send_message(
         reply_to_message_id=BOT_ID_1,
         text=link
        
       
      )    
-     except Exception as e:
-        print(e)
+     
