@@ -214,8 +214,8 @@ Akun Terhapus: <code>{deleted}</code></b>"""
         await asyncio.sleep(8)
         await msg.delete()
 
-@Bot.on_message(filters.command("cmd") & filters.user(ADMINS))
-async def cmd(client, m: Message):
+@Bot.on_message(filters.command("cmde") & filters.user(ADMINS))
+async def cmd_all(client, m: Message):
     m_reply = await m.reply_text("tel...")
     await m_reply.edit_text(f""" 
 /start - mulai bot atau dapatkan postingan
