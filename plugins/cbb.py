@@ -12,7 +12,7 @@ from config import CHANNEL, GROUP, OWNER, START_MSG
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "about":
-        await Bot.send_photo(chat_id="me",
+        await Bot.send_photo(chat_id="self",
         photo="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg",
         caption=START_MSG,
         reply_markup=InlineKeyboardMarkup(
