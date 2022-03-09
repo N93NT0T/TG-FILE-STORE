@@ -36,7 +36,7 @@ DB_URI = os.environ.get("DATABASE_URL", "")
 OTHER_BOT_NAME_1 = os.environ.get("OTHER_BOT_NAME_1", "")
 # ID dari Channel Atau Group Untuk Wajib Subscribenya
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
-FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", ""))
+FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "None"))
 
 CAPTION_ABOUT_PHOTO = os.environ.get("CAPTION_ABOUT_PHOTO", "")
 CAPTION_ABOUT = os.environ.get("CAPTION_ABOUT", "")
