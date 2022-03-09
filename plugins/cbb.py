@@ -28,7 +28,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "close":
         await query.message.delete()
         await query.message.reply_photo(
-            photo=CAPTION_ABOUT_PHOTO,
+            photo=CAPTION_CLOSE_PHOTO,
             caption=CAPTION_CLOSE, 
             parse_mode='html', 
             protect_content=True,
