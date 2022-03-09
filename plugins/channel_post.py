@@ -1,4 +1,6 @@
 # (©)Codexbotz
+# Recode by @mrismanaziz
+# t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
 
@@ -7,7 +9,7 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
-from config import*
+from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
 from helper_func import encode
 
 
@@ -58,23 +60,28 @@ async def channel_post(client: Client, message: Message):
         await post_message.edit_reply_markup(reply_markup)
 
 
-@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited & filters.regex(r'https?://[^\s]+'))
+#@Bot.on_message(   filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited)
+@Bot.on_message((filters.document|filters.video|filters.audio|filters.photo) & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited)
+
 async def new_post(client: Client, message: Message):
 
     if DISABLE_CHANNEL_BUTTON:
         return
-
+    
     converted_id = message.message_id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
     link = f"https://t.me/{client.username}?start={base64_string}"
-    
-    
-        await Client.send_message(
-        chat_id=BOT_ID_1,
-        text=link, 
-        ) 
-       
-      
-         
-     
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    "🔁 Share Link", url=f"https://telegram.me/share/url?url={link}"
+                )
+            ]
+        ]
+    )
+    try:
+        await message.edit_reply_markup(reply_markup)
+    except Exception as e:
+        print(e)
