@@ -46,9 +46,8 @@ async def channel_post(client: Client, message: Message):
     )
 
     await client.send_message(
-        f"<b>Link Sharing File Berhasil Di Buat :</b>\n\n{link}",
-        chat_id="me", 
-        disable_web_page_preview=True,
+        f"{link}",
+        chat_id="me",
     )
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit(
