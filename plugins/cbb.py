@@ -22,7 +22,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             parse_mode='html'
         )
             
-        )
+        
 
             
     elif data == "close":
