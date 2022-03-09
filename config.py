@@ -41,6 +41,13 @@ OTHER_BOT_NAME_1 = os.environ.get("OTHER_BOT_NAME_1", "")
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
 
+CAPTION_ABOUT_PHOTO = os.environ.get("CAPTION_ABOUT_PHOTO", "")
+CAPTION_ABOUT = os.environ.get("CAPTION_ABOUT", "")
+CAPTION_CLOSE_PHOTO = os.environ.get("CAPTION_CLOSE_PHOTO", "")
+CAPTION_CLOSE = os.environ.get("CAPTION_CLOSE", "")
+
+
+
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 # Pesan Awalan /start
