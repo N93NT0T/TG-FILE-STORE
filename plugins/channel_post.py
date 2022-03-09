@@ -9,12 +9,12 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
-from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
+from config import*
 from helper_func import encode
 
 
 #@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
-@Bot.on_message((filters.text|filters.document|filters.video|filters.audio|filters.photo) & filters.incoming & ~filters.edited & ~filters.channel & filters.regex(r'https?://[^\s]+'))
+@Bot.on_message((filters.text|filters.document|filters.video|filters.audio|filters.photo) & filters.chat(CHANNEL_FROM) & filters.incoming & ~filters.edited & ~filters.channel & filters.regex(r'https?://[^\s]+'))
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
     try:
