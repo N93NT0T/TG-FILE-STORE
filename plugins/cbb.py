@@ -12,20 +12,21 @@ from config import CHANNEL, GROUP, OWNER
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "about":
-        await Bot.send_photo(chat_id="{id}",
-        photo="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg",
-        caption=None,
-        reply_markup=InlineKeyboardMarkup(
+        await query.message.edit_text(
+            text=f"<b>Tentang Bot ini:\n\n • Owner: @{OWNER}\n • Channel: @{CHANNEL}\n • Group: @{GROUP}\n • Source Code: <a href='https://github.com/mrismanaziz/File-Sharing-Man'>Klik Disini</a>\n • Owner Repo: @mrismanaziz</b>\n",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("• ᴛᴜᴛᴜᴘ •", callback_data="close")]]
             ),
-        parse_mode="HTML",
-        disable_notification=True,
-        protect_content=True
         )
 
             
     elif data == "close":
         await query.message.delete()
+        await message.reply_photo(
+            photo=photo="https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg",
+            
+        )
         try:
             await query.message.reply_to_message.delete()
         except BaseException:
