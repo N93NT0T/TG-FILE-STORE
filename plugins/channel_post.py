@@ -13,8 +13,8 @@ from config import*
 from helper_func import encode
 
 
-@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
-
+#@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]    ))
+@Bot.on_message(    filters.private    & filters.user(ADMINS)    & ~filters.command(        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"] )   & filters.incoming & filters.channel & ~filters.forwarded & ~filters.edited )
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
     try:
@@ -45,9 +45,10 @@ async def channel_post(client: Client, message: Message):
         ]
     )
 
-    await client.send_message(
-        f"{link}",
-        chat_id=BOT_ID_1, 
+    await reply_text.edit(
+        f"<b>Link Sharing File Berhasil Di Buat :</b>\n\n{link}",
+        reply_markup=reply_markup,
+        disable_web_page_preview=True,
     )
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit(
