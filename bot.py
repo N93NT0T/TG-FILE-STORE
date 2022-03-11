@@ -17,9 +17,9 @@ class Bot(Client):
             api_hash=API_HASH,
             api_id=APP_ID,
             plugins={"root": "plugins"},
-            phone_number="6285746003132",
-        #    workers=TG_BOT_WORKERS,
-       #     bot_token=TG_BOT_TOKEN,
+        #    phone_number="6285746003132",
+            workers=TG_BOT_WORKERS,
+            bot_token=TG_BOT_TOKEN,
         )
         self.LOGGER = LOGGER
 
