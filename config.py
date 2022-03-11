@@ -28,7 +28,7 @@ OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 #OWNER = os.environ.get("OWNER", "")
 
 # Database
-DB_URI = os.environ.get("DATABASE_URL", "")
+DB_URI = os.environ.get("DATABASE_URI", "")
 
 # Username CH & Group
 #CHANNEL = os.environ.get("CHANNEL", "")
