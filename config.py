@@ -51,13 +51,13 @@ kintill...
 """
 
 START_MSG = f"""
-<b>Hello {first},
+<b>Hello ,
 Saya dapat menyimpan file pribadi di Channel Tertentu dan pengguna lain dapat mengaksesnya dari link khusus.</b>
 
 """
 
 FORCE_MSG = f"""
-<b>Hello {first},
+<b>Hello, 
 Anda harus join dulu untuk menggunakan saya
 
 """
