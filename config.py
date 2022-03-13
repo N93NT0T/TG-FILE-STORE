@@ -13,7 +13,7 @@ API_HASH = "644b5ad6ad0e5d394cfe6b780f47680c"
 TG_BOT_WORKERS = int(4)
 
 
-FORCE_SUB_CHANNEL = list(set(int(x) for x in ("-1001698176510 -1001596278379 ").split(" ")))
+FORCE_SUB_CHANNEL = list(set( for x in ("viralmerahmuda uvb8db2").split(" ")))
 FORCE_SUB_GROUP = list(set(int(x) for x in ("-1001698176510").split(" ")))
 PICS = "https://telegra.ph/file/03f521347213efc715449.jpg"
 OTHER_BOT_1 = ""
