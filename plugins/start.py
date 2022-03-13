@@ -12,7 +12,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
 from .button import fsub_button, start_button
-from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG, OTHER_BOT_NAME_1
+from config import*
 from database.sql import add_user, full_userbase, query_msg
 from helper_func import decode, get_messages, subsall, subsch, subsgc
 
