@@ -20,7 +20,7 @@ OTHER_BOT_1 = ""
 
 
 CHANNEL_ID = int(-1001567372048)
-DATABASE_URL = "postgres://cojeankhwfurer:f56958ab3ebe67722c2e679d3e7a5abc9b1f86a6a93f63d57dfa8eaeb49acd96@ec2-52-44-209-165.compute-1.amazonaws.com:5432/dcc5ildjmgf2i"
+DB_URI = "postgres://cojeankhwfurer:f56958ab3ebe67722c2e679d3e7a5abc9b1f86a6a93f63d57dfa8eaeb49acd96@ec2-52-44-209-165.compute-1.amazonaws.com:5432/dcc5ildjmgf2i"
 
 
 CAPTION_ABOUT_PHOTO = "https://telegra.ph/file/7c5c0dc8ee6723aac16be.jpg"
