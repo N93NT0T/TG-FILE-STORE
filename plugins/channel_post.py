@@ -56,7 +56,7 @@ async def channel_post(client: Client, message: Message):
         disable_web_page_preview=True,
     )
 
-    if not DISABLE_CHANNEL_BUTTON:
+  #  if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(reply_markup)
 
 
@@ -65,8 +65,8 @@ async def channel_post(client: Client, message: Message):
 )
 async def new_post(client: Client, message: Message):
 
-    if DISABLE_CHANNEL_BUTTON:
-        return
+ #   if DISABLE_CHANNEL_BUTTON:
+  #      return
 
     converted_id = message.message_id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
